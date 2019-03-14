@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
 <ul>
-    <li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+    <li class="item border-bottom" v-for="item of list" :key="item.id">
         <!-- <div class="item-img-wrapper"> -->
             <img class="item-img" :src="item.imgUrl" alt="">
         <!-- </div> -->
@@ -20,34 +20,12 @@
 <script>
 export default {
     name: 'HomeRecommend',
+    props: {
+    list:Array
+  },
     data () {
         return {
-             recommendList: [
-                {
-                    id: '0001',
-                    imgUrl: 'https://imgs.qunarzz.com/p/tts4/1811/82/e20f4bc554cc8902.jpg_r_390x260x90_8686b536.jpg',
-                    title: '水电费sdf电费',
-                    desc: '哒哒哒哒哒哒地方大幅度辅导辅导辅导费对方水电费水电费多多多多多撒大声地'
-                },
-                {
-                    id: '0002',
-                    imgUrl: 'https://imgs.qunarzz.com/p/tts4/1811/82/e20f4bc554cc8902.jpg_r_390x260x90_8686b536.jpg',
-                    title: '水sdf电费',
-                    desc: '哒哒哒哒哒哒地方大幅度辅导辅导辅导费对方水电费水电费多多多多多撒大声地'
-                },
-                {
-                    id: '0003',
-                    imgUrl: 'https://imgs.qunarzz.com/p/tts4/1811/82/e20f4bc554cc8902.jpg_r_390x260x90_8686b536.jpg',
-                    title: 'sdf水电费',
-                    desc: '哒哒哒哒哒哒地方大幅度辅导辅导辅导费对方水电费水电费多多多多多撒大声地'
-                },
-                {
-                    id: '0004',
-                    imgUrl: 'https://imgs.qunarzz.com/p/tts4/1811/82/e20f4bc554cc8902.jpg_r_390x260x90_8686b536.jpg',
-                    title: '水电费ds水电费',
-                    desc: '哒哒哒哒哒哒地方大幅度辅导辅导辅导费对方水电费水电费多多多多多撒大声地'
-                },
-            ]
+
         }
     }       
 }
