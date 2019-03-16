@@ -3,33 +3,35 @@
     <div class="banner" @click="handleBannerClick"> 
       <img
         class="banner-img"
-        src="https://imgs.qunarzz.com/p/tts8/1811/c2/a690db98189f0602.jpg_r_390x260x90_b7f98bcc.jpg"
-        alt
+        :src="bannerImg"
       >
       <div class="banner-info">
-        <div class="banner-title">ffdfsdfsd地方fsdf</div>
+        <div class="banner-title">{{this.sightName}}</div>
         <div class="banner-number">
-          <span class="iconfont banner-icon">&#xe692;</span>39
+          <span class="iconfont banner-icon">&#xe692;</span>{{this.gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    <fade-animation>
+    <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommonGallary from "common/gallary/Gallary";
+import FadeAnimation from "common/fade/Fade";
 
 export default {
   name: "DetailBanner",
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data() {
     return {
       showGallary: false,
-      imgs: [
-        "https://imgs.qunarzz.com/p/tts8/1811/c2/a690db98189f0602.jpg_r_390x260x90_b7f98bcc.jpg",
-        "https://imgs.qunarzz.com/p/tts8/1811/c2/a690db98189f0602.jpg_r_390x260x90_b7f98bcc.jpg",
-        "https://imgs.qunarzz.com/p/tts8/1811/c2/a690db98189f0602.jpg_r_390x260x90_b7f98bcc.jpg"
-      ]
     };
   },
   methods: {
@@ -41,7 +43,8 @@ export default {
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    FadeAnimation
   }
 };
 </script>
